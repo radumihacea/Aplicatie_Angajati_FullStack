@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <h1 class="mb-3">Angajati</h1>
+    
+    <p *ngIf="!angajati || angajati.length === 0">Nu sunt angajati</p>
+
+    <table class="table" *ngIf="angajati && angajati.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Salary</th>
+                <th>Department</th>
+                <th></th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let angajat of angajati">
+                <td>{{ angajat.id }}</td>
+                <td>{{ angajat.name }}</td>
+                <td>{{ angajat.email }}</td>
+                <td>{{ angajat.phone }}</td>
+                <td>{{ angajat.salary }}</td>
+                <td>{{ angajat.department }}</td>
+                <td><a [routerLink]="['/angajati', 'edit', angajat.id]">Vizualizare</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
